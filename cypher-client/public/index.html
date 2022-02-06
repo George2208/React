@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Messenger</title>
+		<link rel="stylesheet" href="style.css">
+		<style>
+			:root {
+				font-size: 20px;
+				--bg: #e7e2c6;
+				--hover: #8a8674;
+				--popupbg: gray;
+				--received: #d39972;
+				--sent: #f7c19b;
+				--text: black;
+				--borders: black;
+				--transitionSpeed: .3s;
+			}
+			/* :root {
+				font-size: 20px;
+				--bg: black;
+				--popupbg: gray;
+				--hover: #333;
+				--received: #333;
+				--sent: #444;
+				--text: white;
+				--borders: #aaa;
+				--transitionSpeed: .3s;
+			} */
+			p.good { color: green; }
+			p.bad { color: red; }
+			button.good { display: initial; }
+			button.bad { display: none; }
+			.accountForm > div > div > .good { border-color: green; }
+			.accountForm > div > div > .bad { border-color: red; }
+		</style>
+	</head>
+	<body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root"></div>
+	</body>
+</html>

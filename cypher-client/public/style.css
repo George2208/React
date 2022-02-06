@@ -1,0 +1,220 @@
+body {
+	background-color: var(--bg);
+	height: 100vh;
+}
+
+* {
+	background-color: transparent;
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	font-size: 1em;
+	color: var(--text);
+	font-family: Arial;
+}
+
+/* Account related forms style */
+
+.accountForm {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	padding: 1rem 2rem;}
+	.accountForm > div {
+		display: flex;
+		margin: .5rem;
+		gap: 1rem;}
+		.accountForm > div > label {
+			width: 50%;
+			text-align: end;}
+		.accountForm > div > div { position: relative; }
+			.accountForm input {
+				border: none;
+				border-bottom: .2rem dotted var(--borders);}
+			.accountForm input:focus ~ .popup {
+				display: block;
+				opacity: .9;
+				pointer-events: none;
+				user-select: none;}
+	.accountForm > button {
+		margin: auto;
+		margin-top: 1rem;
+		border: 1px solid black;
+		border-radius: .5rem;
+		transition-property: background-color;
+		transition-duration: var(--transitionSpeed);}
+	.accountForm > button:hover { background-color: var(--hover); }
+	.accountForm > h1 {
+		font-size: 1.4em;
+		margin: auto;}
+	.accountForm > a {
+		margin: auto;
+		margin-top: 1rem;
+		text-decoration: none;
+		transition-property: color;
+		transition-duration: var(--transitionSpeed);}
+	.accountForm > a:hover { color: var(--hover); }
+.popup {
+	font-size: .8rem;
+	padding: .5em .2em;
+	display: none;
+	width: 100%;
+	right: 0;
+	top: 1.3rem;
+	opacity: 0;
+	z-index: 1;
+	position: absolute;
+	text-align: center;
+	background-color: var(--popupbg);
+	transition-property: opacity;
+	transition-duration: var(--transitionSpeed);
+	border-radius: 0 0 .5rem .5rem;}
+
+/* Error page style */
+
+#errorPage {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;}
+	#errorPage > * {
+		margin: 1rem;
+		text-decoration: none;
+		transition-property: color;
+		transition-duration: var(--transitionSpeed);}
+	#errorPage > h1 {font-size: 2rem;}
+	#errorPage > h2 {font-size: 1.7rem;}
+	#errorPage > a:hover { color: var(--hover); }
+
+/* Loading screen style */
+
+.loader {
+	margin: auto;
+	border: 16px solid #f3f3f3; /* Light grey */
+	border-top: 16px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;}
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }}
+
+/* Resizable components style */
+
+.resizableWrapper {
+	display: flex;
+	height: 100%;
+	width: 100%;}
+	.resizableWrapper.vertical { flex-direction: column; }
+	.resizer { background: var(--borders); }
+		.resizer[direction='horizontal'] {
+			cursor: ew-resize;
+			width: 5px; }
+		.resizer[direction='vertical'] {
+			cursor: ns-resize;
+			height: 5px; }
+	.resizableContainer {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		position: relative; }
+		.resizableContainer.left { width: 50%; }
+		.resizableContainer.top { height: 50%; }
+		.resizableContainer.bottom { flex: 1; }
+		.resizableContainer.right { flex: 1; }
+
+/* Profile style */
+
+#profile input:read-only { outline: none; }
+#profile label button {
+	border: 0;
+	margin-left: .1rem;
+	transition-property: color;
+	transition-duration: var(--transitionSpeed);}
+	#profile label button:hover { color: var(--hover); }
+#links {
+	margin: auto;
+	display: flex;}
+	#links > a {
+		text-decoration: none;
+		border: 0;
+		border-radius: .5rem;
+		padding: .1rem;
+		transition-property: color;
+		transition-duration: var(--transitionSpeed);}
+		#links > a:hover { color: var(--hover); }
+		#deleteAccountButton:hover { color: red !important; }
+
+
+/* Chat style */
+
+section {
+	height: 100vh;
+	width: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;}
+	section > :first-child {
+		display: flex;
+		justify-content: space-around;
+		border-bottom: 1px solid var(--borders);}
+		section > :first-child > * {
+			padding: 1rem;
+			display: block;
+			margin: auto;}
+		section > :first-child > button {
+			width: fit-content;
+			margin: 0;}
+		section > :first-child > button:hover {background-color: var(--hover);}
+	.list {
+		overflow-y: auto;
+		overflow-x: hidden;}
+		.list > button {
+			display: block;
+			width: 100%;
+			border: 0;
+			border-bottom: 1px solid var(--borders);}
+		.list > button:hover {background-color: var(--hover);}
+	#chatMenu button, #chatMenu a {
+		display: block;
+		width: 100%;
+		padding: .2rem;
+		text-align: center;
+		text-decoration: none;
+		border-top: 1px solid var(--borders);}
+	#chatMenu button:hover, #chatMenu a:hover {background-color: var(--hover);}
+	.message {
+		width: fit-content;
+		max-width: 70%;
+		min-width: 7rem;
+		padding: .3rem .3rem 0 .3rem;
+		margin-top: .3rem;
+		background-color: var(--received);
+		border-radius: 0 .5rem .5rem .5rem;}
+		.message small {
+			display: block;
+			width: fit-content;
+			margin: 0 .2rem 0 auto;
+			font-size: .7rem;}
+		.message.sent {
+			margin-left: auto;
+			background-color: var(--sent);
+			border-radius: .5rem .5rem 0 .5rem;}
+		.message.sent + .message.sent > b {display: none;}
+	.expander {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;}
+		section > .expander {height: 100vh;}
+	#input {display: flex;}
+		#input input {
+			display: block;
+			width: 100%;
+			border-top: 1px solid var(--borders);}
+		#input button {
+			border-left: 1px solid var(--borders);
+			border-top: 1px solid var(--borders);}
+		#input button:hover {background-color: var(--hover);}
